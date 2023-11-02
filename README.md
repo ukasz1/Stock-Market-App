@@ -6,7 +6,7 @@ This is the first part of the Stock Market project. The purpose of this app is t
 ### Stock-Market-App
 Stock Market frontend app.
 
-<img src="https://github.com/ukasz1/Stock-Market-App/assets/46789003/3a913dea-0616-466f-9d69-21743a1678c6" alt="drawing" width="50%"/>
+<img src="https://github.com/ukasz1/Stock-Market-App/assets/46789003/9daf5a96-b7a7-40fb-93cd-fb80afe27a55" alt="drawing" width="50%"/>
 
 ### Current state
 Not deployed yet. Work in progress.
