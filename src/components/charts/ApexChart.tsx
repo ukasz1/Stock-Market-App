@@ -4,6 +4,10 @@ import axios from 'axios';
 
 import ReactApexChart from 'react-apexcharts';
 
+// Temporarily
+const API_URL: string | undefined = process.env.REACT_APP_API_URL;
+const API_URL_PORT: string | undefined = process.env.REACT_APP_API_URL_PORT;
+
 interface CandleData {
   x: string,
   y: number[]
@@ -37,6 +41,15 @@ interface ApexChartState {
       }
     }
   }
+}
+
+interface APIData {
+  ID: number,
+  open: number,
+  max: number,
+  min: number,
+  close: number,
+  time: string
 }
 
 class ApexChart extends React.Component<{}, ApexChartState> {
@@ -77,14 +90,30 @@ class ApexChart extends React.Component<{}, ApexChartState> {
   }
 
   async componentDidMount() {
-    const response = await axios.get('/mocks/wig20-daily.json');
-    const {data} = response;
+    const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20`);
+    const data = this.adjustData(responseAPI.data);
+
+    // Mocked data:
+    // const responseMock = await axios.get('/mocks/wig20-daily.json');
+    // console.log('responseMock: ', responseMock);
+    // const {data} = responseMock;
+
     this.setState({
       series: [{
         name: 'candle',
         data: data as CandleData[]
       }]
     });
+  }
+
+  adjustData(data: APIData[]): CandleData[] {
+    const adjustedData: CandleData[] = [];
+    data.forEach(tuple => {
+      const {open, max, min, close, time} = tuple;
+      const adjustedTuple: CandleData = {x: time, y: [open, max, min, close]};
+      adjustedData.push(adjustedTuple);
+    })
+    return adjustedData;
   }
 
   render() {
