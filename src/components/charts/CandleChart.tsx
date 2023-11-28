@@ -13,7 +13,7 @@ interface CandleData {
   y: number[]
 }
 
-interface ApexChartState {
+interface CandleChartState {
   series: {
     name: string,
     data: CandleData[]
@@ -52,7 +52,7 @@ interface APIData {
   time: string
 }
 
-class ApexChart extends React.Component<{}, ApexChartState> {
+class CandleChart extends React.Component<{}, CandleChartState> {
   constructor(props: {}) {
     super(props);
 
@@ -132,4 +132,4 @@ class ApexChart extends React.Component<{}, ApexChartState> {
   }
 }
 
-export default ApexChart;
+export default CandleChart;

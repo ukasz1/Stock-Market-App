@@ -1,13 +1,13 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import ApexChart from './components/charts/ApexChart';
+import CandleChart from './components/charts/CandleChart';
 
 function App() {
   return (
     <div className="app">
       <Navbar />
       <div className="content">
-        <ApexChart />
+        <CandleChart />
       </div>
     </div>
   );
