@@ -90,13 +90,14 @@ class ApexChart extends React.Component<{}, ApexChartState> {
   }
 
   async componentDidMount() {
-    const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20`);
-    const data = this.adjustData(responseAPI.data);
-
-    // Mocked data:
-    // const responseMock = await axios.get('/mocks/wig20-daily.json');
-    // console.log('responseMock: ', responseMock);
-    // const {data} = responseMock;
+    let data : CandleData[];
+    try {
+      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20`);
+      data = this.adjustData(responseAPI.data);
+    } catch (error) {
+      console.log(error);
+      data = [];
+    }
 
     this.setState({
       series: [{
