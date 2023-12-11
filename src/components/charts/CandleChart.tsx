@@ -76,7 +76,7 @@ class CandleChart extends React.Component<{}, CandleChartState> {
           type: 'category',
           labels: {
             formatter: function(val: string) {
-              return dayjs(val).format('MMM DD HH:mm')
+              return dayjs(val).format('MMM DD')
             }
           }
         },
@@ -111,7 +111,7 @@ class CandleChart extends React.Component<{}, CandleChartState> {
     const adjustedData: CandleData[] = [];
     data.forEach(tuple => {
       const {open, max, min, close, time} = tuple;
-      const adjustedTuple: CandleData = {x: time, y: [open, max, min, close]};
+      const adjustedTuple: CandleData = {x: time, y: [open/100, max/100, min/100, close/100]};
       adjustedData.push(adjustedTuple);
     })
     return adjustedData;
