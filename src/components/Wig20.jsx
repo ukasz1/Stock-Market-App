@@ -5,6 +5,8 @@ import ChartOptions from "./charts/ChartOptions";
 function Wig20() {
   return (
     <Wrapper>
+      <h2>Wig20</h2>
+      <hr />
       <div className="container">
         <div className="chart">
           <CandleChart />
@@ -18,17 +20,23 @@ function Wig20() {
 }
 
 const Wrapper = styled.div`
-    margin: 20px;
-     .container {
-      display: flex;
-      justify-content: center;
-      .chart {
-        padding: 10px;
-        border: 1px solid #bbb;
-        border-radius: 5px;
-        display: inline-block;
-      }
+  margin: 20px;
+
+  h2 {
+    margin-left: 20px;
   }
-    `;
+  
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .chart {
+      padding: 10px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      display: inline-block;
+    }
+  }
+`;
 
 export default Wig20;
