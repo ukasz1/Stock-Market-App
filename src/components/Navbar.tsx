@@ -32,14 +32,15 @@ function NavigationBar() {
 }
 
 const Wrapper = styled.div`
-    box-shadow: 0 0.5px 0.5px 0.5px #6a6a6a;
-    .custom-navbar {
-      background-color: #000080;
+  border-bottom: 1px solid #000067;
+
+  .custom-navbar {
+    background-color: #000080;
   }
-    .brand {
-      font-size: 1.4em;
+  .brand {
+    font-size: 1.4em;
     color: #ffd700;
   }
-    `;
+`;
 
 export default NavigationBar;
