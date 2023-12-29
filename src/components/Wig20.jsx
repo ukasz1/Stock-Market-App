@@ -35,6 +35,8 @@ const Wrapper = styled.div`
       border: 1px solid #bbb;
       border-radius: 5px;
       display: inline-block;
+      /* height: 350px;
+      width: 800px; */
     }
   }
 `;
