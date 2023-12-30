@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import CandleChart from "./charts/CandleChart";
+import LineChart from "./charts/LineChart";
 import ChartOptions from "./charts/ChartOptions";
 
 function Wig20() {
@@ -9,7 +10,8 @@ function Wig20() {
       <hr />
       <div className="container">
         <div className="chart">
-          <CandleChart />
+          {/* <CandleChart /> */}
+          <LineChart />
         </div>
         <div className="options">
           <ChartOptions />
@@ -34,9 +36,9 @@ const Wrapper = styled.div`
       padding: 10px;
       border: 1px solid #bbb;
       border-radius: 5px;
-      display: inline-block;
-      /* height: 350px;
-      width: 800px; */
+      /* display: inline-block; */
+      height: 380px;
+      /* width: 800px; */
     }
   }
 `;

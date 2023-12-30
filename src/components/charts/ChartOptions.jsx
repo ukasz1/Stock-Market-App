@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import SelectType from './SelectType';
 
-function ChartOptions() {
+const ChartOptions = () => {
   return (
     <Wrapper>
-      <b>Options</b>
+      <div className="header">
+        <b>Options</b>
+      </div>
+      <div className="details">
+        <SelectType />
+      </div>
     </Wrapper>
   )
 }
@@ -13,6 +19,11 @@ const Wrapper = styled.div`
     padding: 0 20px;
     border: 1px solid #bbb;
     border-radius: 5px;
+    height: 380px;
+    
+    .details {
+      padding: 5px
+    }
     `;
 
 export default ChartOptions;

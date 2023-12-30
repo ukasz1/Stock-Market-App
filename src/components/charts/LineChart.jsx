@@ -9,41 +9,69 @@ import MoonLoader from "react-spinners/MoonLoader";
 const API_URL = process.env.REACT_APP_API_URL;
 const API_URL_PORT = process.env.REACT_APP_API_URL_PORT;
 
-class CandleChart extends React.Component {
+class LineChart extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       series: [{
-        name: 'candle',
+        name: 'WIG20',
         data: []
       }],
       options: {
         chart: {
-          type: 'candlestick',
+          type: 'area',
+          stacked: false,
+          height: 350,
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },
+          toolbar: {
+            autoSelected: 'zoom'
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        markers: {
+          size: 0,
         },
         title: {
           text: 'WIG20',
           align: 'center'
         },
-        tooltip: {
-          enabled: true,
-        },
-        xaxis: {
-          type: 'category',
-          labels: {
-            formatter: function(val) {
-              return dayjs(val).format('MMM DD')
-            }
-          }
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.5,
+            opacityTo: 0,
+            stops: [0, 90, 100]
+          },
         },
         yaxis: {
-          tooltip: {
-            enabled: true
+          labels: {
+            formatter: function (val) {
+              return val.toFixed(2);
+            },
           },
           title: {
             text: ''
           },
+        },
+        xaxis: {
+          type: 'datetime',
+        },
+        tooltip: {
+          shared: false,
+          y: {
+            formatter: function (val) {
+              return val.toFixed(2)
+            }
+          }
         }
       },
       loading: true
@@ -53,7 +81,7 @@ class CandleChart extends React.Component {
   async componentDidMount() {
     let data = [];
     try {
-      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20`);
+      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20-line`);
       data = this.adjustData(responseAPI.data);
     } catch (error) {
       console.log(error);
@@ -62,7 +90,7 @@ class CandleChart extends React.Component {
 
     this.setState({
       series: [{
-        name: 'candle',
+        name: 'WIG20',
         data: data
       }],
       loading: false
@@ -72,8 +100,8 @@ class CandleChart extends React.Component {
   adjustData(data) {
     const adjustedData = [];
     data.forEach(tuple => {
-      const {open, max, min, close, time} = tuple;
-      const adjustedTuple = {x: time, y: [open/100, max/100, min/100, close/100]};
+      const {close, time} = tuple;
+      const adjustedTuple = {x: time, y: close/100};
       adjustedData.push(adjustedTuple);
     })
     return adjustedData;
@@ -97,7 +125,7 @@ class CandleChart extends React.Component {
               <ReactApexChart
                 options={this.state.options}
                 series={this.state.series}
-                type="candlestick"
+                type="area"
                 height={350}
                 width={800} />
             )
@@ -121,4 +149,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default CandleChart;
+export default LineChart;
