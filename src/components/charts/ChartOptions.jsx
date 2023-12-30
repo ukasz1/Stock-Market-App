@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import SelectType from './SelectType';
 
-const ChartOptions = () => {
+const ChartOptions = ({chartType, setChartType}) => {
   return (
     <Wrapper>
       <div className="header">
         <b>Options</b>
       </div>
       <div className="details">
-        <SelectType />
+        <SelectType chartType={chartType} setChartType={setChartType} />
       </div>
     </Wrapper>
   )

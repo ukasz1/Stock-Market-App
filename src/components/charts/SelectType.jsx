@@ -1,12 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-function SelectType() {
-  const [chartType, setChartType] = useState('line');
-
+const SelectType = ({chartType, setChartType}) => {
   const charts = [
     { name: 'Line', value: 'line' },
     { name: 'Candlestick', value: 'candle' }

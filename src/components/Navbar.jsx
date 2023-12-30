@@ -1,7 +1,7 @@
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import styled from 'styled-components';
 
-function NavigationBar() {
+const NavigationBar = () => {
   return (
     <Wrapper>
       <Navbar expand="lg" variant="dark" className="custom-navbar">

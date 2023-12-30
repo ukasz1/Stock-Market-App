@@ -1,20 +1,22 @@
+import {useState} from 'react';
 import styled from 'styled-components';
 import CandleChart from "./charts/CandleChart";
 import LineChart from "./charts/LineChart";
 import ChartOptions from "./charts/ChartOptions";
 
-function Wig20() {
+const Wig20 = () => {
+  const [chartType, setChartType] = useState('line');
+
   return (
     <Wrapper>
       <h2>Wig20</h2>
       <hr />
       <div className="container">
         <div className="chart">
-          {/* <CandleChart /> */}
-          <LineChart />
+          {chartType === 'line' ? <LineChart /> : <CandleChart />} 
         </div>
         <div className="options">
-          <ChartOptions />
+          <ChartOptions chartType={chartType} setChartType={setChartType} />
         </div>
       </div>
     </Wrapper> 
@@ -36,9 +38,7 @@ const Wrapper = styled.div`
       padding: 10px;
       border: 1px solid #bbb;
       border-radius: 5px;
-      /* display: inline-block; */
       height: 380px;
-      /* width: 800px; */
     }
   }
 `;
