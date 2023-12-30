@@ -80,21 +80,24 @@ class CandleChart extends React.Component {
     return (
       <Wrapper>
         <div id="chart">
-          {this.state.loading ?
-            <MoonLoader
-              size={90}
-              color={'#000095'}
-              loading={true}
-              aria-label="Loading Spinner"
-              data-testid="loader"
-            /> :
-            <ReactApexChart
-              options={this.state.options}
-              series={this.state.series}
-              type="candlestick"
-              height={350}
-              width={800}
-            />
+          {
+            this.state.loading ? (
+              <div className="loader">
+                <MoonLoader
+                  size={90}
+                  color={'#000095'}
+                  loading={true}
+                  aria-label="Loading Spinner"
+                  data-testid="loader" /> 
+              </div>
+            ) : (
+              <ReactApexChart
+                options={this.state.options}
+                series={this.state.series}
+                type="candlestick"
+                height={350}
+                width={800} />
+            )
           }
         </div>
       </Wrapper>
@@ -108,6 +111,10 @@ const Wrapper = styled.div`
     justify-content: center;
     height: 350px;
     width: 800px;
+
+    .loader {
+      margin: 115px;
+    }
   }
 `;
 
