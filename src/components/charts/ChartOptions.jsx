@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function ChartOptions() {
+const ChartOptions = () => {
   return (
     <Wrapper>
       <b>Options</b>
