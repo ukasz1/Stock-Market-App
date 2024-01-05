@@ -7,3 +7,12 @@ This is the first part of the Stock Market project. The purpose of this app is t
 
 ### Current state
 Not deployed yet. Work in progress.
+
++ Added displaying real data for WIG20 index (July, August 2023) - APEX.
++ Added switching the chart type between linear and candlestick.
+
+#### Results:
+<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/fdc38469-988c-45e0-b955-3eb7c3c0cbc0" width="100%" />
+
+<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/2ad125ab-dbb7-4c48-a3f1-559941393f00" width="100%" />
+
