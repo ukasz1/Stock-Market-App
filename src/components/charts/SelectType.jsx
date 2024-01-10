@@ -13,18 +13,18 @@ const SelectType = ({chartType, setChartType}) => {
       Chart type:
       <div className="toggler">
         <ButtonGroup>
-          {charts.map((radio, idx) => (
+          {charts.map((chart, idx) => (
             <ToggleButton
               key={idx}
-              id={`radio-${idx}`}
+              id={`chartType-${idx}`}
               type="radio"
-              variant={idx % 2 ? 'outline-primary' : 'outline-primary'}
-              name="radio"
-              value={radio.value}
-              checked={chartType === radio.value}
+              variant={'outline-primary'}
+              name="chartType"
+              value={chart.value}
+              checked={chartType === chart.value}
               onChange={(e) => setChartType(e.currentTarget.value)}
             >
-              {radio.name}
+              {chart.name}
             </ToggleButton>
           ))}
         </ButtonGroup>

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import CandleChart from "./charts/CandleChart";
 import LineChart from "./charts/LineChart";
@@ -6,6 +6,7 @@ import ChartOptions from "./charts/ChartOptions";
 
 const Wig20 = () => {
   const [chartType, setChartType] = useState('line');
+  const [interval, setInterval] = useState('day');
 
   return (
     <Wrapper>
@@ -16,7 +17,11 @@ const Wig20 = () => {
           {chartType === 'line' ? <LineChart /> : <CandleChart />} 
         </div>
         <div className="options">
-          <ChartOptions chartType={chartType} setChartType={setChartType} />
+          <ChartOptions
+            chartType={chartType}
+            setChartType={setChartType}
+            interval={interval}
+            setInterval={setInterval} />
         </div>
       </div>
     </Wrapper> 

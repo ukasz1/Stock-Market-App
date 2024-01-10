@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import SelectType from './SelectType';
+import SelectInterval from './SelectInterval';
 
-const ChartOptions = ({chartType, setChartType}) => {
+const ChartOptions = ({chartType, setChartType, interval, setInterval}) => {
   return (
     <Wrapper>
       <div className="header">
@@ -9,6 +10,7 @@ const ChartOptions = ({chartType, setChartType}) => {
       </div>
       <div className="details">
         <SelectType chartType={chartType} setChartType={setChartType} />
+        <SelectInterval intervalType={interval} setIntervalType={setInterval} />
       </div>
     </Wrapper>
   )
