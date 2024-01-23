@@ -12,7 +12,7 @@ Not deployed yet. Work in progress. Can be run locally on *localhost:3000*
 + Added switching the chart type between linear and candlestick.
 
 #### Results:
-<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/fdc38469-988c-45e0-b955-3eb7c3c0cbc0" width="100%" />
+<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/a95aff88-4157-492a-987b-75c67b370979" />
 
-<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/2ad125ab-dbb7-4c48-a3f1-559941393f00" width="100%" />
+<img src="https://github.com/ukasz1/stock-market-app/assets/46789003/38569640-d92c-4ed8-8bf7-876b291725a8">
 
