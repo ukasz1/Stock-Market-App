@@ -35,7 +35,7 @@ const SelectType = ({chartType, setChartType}) => {
 
 const Wrapper = styled.div`
   .toggler {
-    margin-top: 7px;
+    margin-top: 5px;
   }
 `;
 

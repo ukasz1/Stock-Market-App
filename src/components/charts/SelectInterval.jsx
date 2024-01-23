@@ -35,8 +35,9 @@ const SelectInterval = ({intervalType, setIntervalType}) => {
 }
 
 const Wrapper = styled.div`
+  padding-top: 6px;
   .toggler {
-    margin-top: 7px;
+    margin-top: 5px;
   }
 `;
 
