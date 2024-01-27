@@ -7,6 +7,7 @@ import ChartOptions from "./charts/ChartOptions";
 const Wig20 = () => {
   const [chartType, setChartType] = useState('line');
   const [interval, setInterval] = useState('day');
+  const [period, setPeriod] = useState('1m');
 
   return (
     <Wrapper>
@@ -21,7 +22,9 @@ const Wig20 = () => {
             chartType={chartType}
             setChartType={setChartType}
             interval={interval}
-            setInterval={setInterval} />
+            setInterval={setInterval}
+            period={period}
+            setPeriod={setPeriod} />
         </div>
       </div>
     </Wrapper> 
