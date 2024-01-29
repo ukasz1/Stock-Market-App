@@ -80,7 +80,7 @@ class LineChart extends React.Component {
   async componentDidMount() {
     let data = [];
     try {
-      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20-line`);
+      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20?type=line`);
       data = this.adjustData(responseAPI.data);
     } catch (error) {
       console.log(error);

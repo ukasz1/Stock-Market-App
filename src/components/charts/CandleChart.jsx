@@ -53,7 +53,7 @@ class CandleChart extends React.Component {
   async componentDidMount() {
     let data = [];
     try {
-      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20`);
+      const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20?type=candlestick`);
       data = this.adjustData(responseAPI.data);
     } catch (error) {
       console.log(error);
