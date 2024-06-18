@@ -12,7 +12,7 @@ interface SelectIntervalProps {
   setIntervalType: React.Dispatch<React.SetStateAction<string>>
 }
 
-const SelectInterval: React.FC<SelectIntervalProps> = ({intervalType, setIntervalType}) => {
+const SelectInterval = ({intervalType, setIntervalType}: SelectIntervalProps) => {
   const intervals: Interval[] = [
     { name: 'Day', value: 'day' },
     { name: 'Week', value: 'week' },

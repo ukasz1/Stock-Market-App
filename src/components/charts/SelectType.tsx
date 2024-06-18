@@ -12,7 +12,7 @@ interface SelectTypeProps {
   setChartType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SelectType: React.FC<SelectTypeProps> = ({chartType, setChartType}) => {
+const SelectType = ({chartType, setChartType}: SelectTypeProps) => {
   const charts: Chart[] = [
     { name: 'Line', value: 'line' },
     { name: 'Candlestick', value: 'candle' }

@@ -12,7 +12,7 @@ interface SelectPeriodProps {
   setPeriodType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SelectPeriod: React.FC<SelectPeriodProps> = ({periodType, setPeriodType}) => {
+const SelectPeriod = ({periodType, setPeriodType}: SelectPeriodProps) => {
   const periods: Period[] = [
     { name: '1D', value: '1d' },
     { name: '1W', value: '1w' },

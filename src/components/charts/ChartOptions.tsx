@@ -12,7 +12,7 @@ interface ChartOptionsProps {
   setPeriod: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ChartOptions: React.FC<ChartOptionsProps> = ({chartType, setChartType, interval, setInterval, period, setPeriod}) => {
+const ChartOptions = ({chartType, setChartType, interval, setInterval, period, setPeriod}: ChartOptionsProps) => {
   return (
     <Wrapper>
       <div className="header">
