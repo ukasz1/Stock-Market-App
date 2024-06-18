@@ -15,8 +15,13 @@ interface LineChartData {
   time: string;
 }
 
+interface FormattedChartData {
+  x: string;
+  y: number;
+}
+
 interface LineChartState {
-  series: any;
+  series: ApexCharts.ApexOptions["series"];
   loading: boolean;
 }
 
@@ -34,7 +39,7 @@ class LineChart extends React.Component<{}, LineChartState> {
   }
 
   async componentDidMount() {
-    let data = [];
+    let data: FormattedChartData[] = [];
     try {
       const responseAPI = await axios.get(`${API_URL}${API_URL_PORT}/wig20?type=line`);
       data = this.adjustData(responseAPI.data);
@@ -53,10 +58,10 @@ class LineChart extends React.Component<{}, LineChartState> {
   }
 
   adjustData(data: LineChartData[]) {
-    const adjustedData: any[] = [];
+    const adjustedData: FormattedChartData[] = [];
     data.forEach(tuple => {
       const {close, time} = tuple;
-      const adjustedTuple = {x: time, y: close/100};
+      const adjustedTuple: FormattedChartData = {x: time, y: close/100};
       adjustedData.push(adjustedTuple);
     });
     return adjustedData;

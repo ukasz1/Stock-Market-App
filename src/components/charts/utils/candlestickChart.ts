@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export const candlestickChartSettings : ApexCharts.ApexOptions = {
+export const candlestickChartSettings: ApexCharts.ApexOptions = {
   chart: { type: "candlestick" },
   title: {
     text: "WIG20",

@@ -2,13 +2,18 @@ import styled from 'styled-components';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
+type Chart = {
+  name: 'Line' | 'Candlestick';
+  value: 'line' | 'candle';
+}
+
 interface SelectTypeProps {
   chartType: string;
   setChartType: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SelectType: React.FC<SelectTypeProps> = ({chartType, setChartType}) => {
-  const charts = [
+  const charts: Chart[] = [
     { name: 'Line', value: 'line' },
     { name: 'Candlestick', value: 'candle' }
   ];

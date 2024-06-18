@@ -16,7 +16,12 @@ interface CandleData {
   min: number;
   close: number;
   time: string;
-};
+}
+
+interface FormattedChartData {
+  x: string;
+  y: number[];
+}
 
 interface CandleChartState {
   series: ApexCharts.ApexOptions["series"];
@@ -39,7 +44,7 @@ class CandleChart extends React.Component<{}, CandleChartState> {
   }
 
   async componentDidMount() {
-    let data = [];
+    let data: FormattedChartData[] = [];
     try {
       const responseAPI = await axios.get(
         `${API_URL}${API_URL_PORT}/wig20?type=candlestick`
@@ -62,10 +67,10 @@ class CandleChart extends React.Component<{}, CandleChartState> {
   }
 
   adjustData(data: CandleData[]) {
-    const adjustedData: any[] = [];
+    const adjustedData: FormattedChartData[] = [];
     data.forEach((tuple) => {
       const { open, max, min, close, time } = tuple;
-      const adjustedTuple = {
+      const adjustedTuple: FormattedChartData = {
         x: time,
         y: [open / 100, max / 100, min / 100, close / 100],
       };
