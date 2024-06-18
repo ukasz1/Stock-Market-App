@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-const SelectPeriod = ({periodType, setPeriodType}) => {
+interface SelectPeriodProps {
+  periodType: string;
+  setPeriodType: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const SelectPeriod: React.FC<SelectPeriodProps> = ({periodType, setPeriodType}) => {
   const periods = [
     { name: '1D', value: '1d' },
     { name: '1W', value: '1w' },

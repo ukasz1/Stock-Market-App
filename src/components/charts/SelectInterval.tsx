@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-const SelectInterval = ({intervalType, setIntervalType}) => {
+interface SelectIntervalProps {
+  intervalType: string;
+  setIntervalType: React.Dispatch<React.SetStateAction<string>>
+}
+
+const SelectInterval: React.FC<SelectIntervalProps> = ({intervalType, setIntervalType}) => {
   const intervals = [
     { name: 'Day', value: 'day' },
     { name: 'Week', value: 'week' },
