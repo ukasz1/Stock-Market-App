@@ -5,11 +5,23 @@ import styled from 'styled-components';
 import ReactApexChart from 'react-apexcharts';
 import MoonLoader from "react-spinners/MoonLoader";
 
+import {lineChartSettings} from "./utils/lineChart";
+
 const API_URL = process.env.REACT_APP_API_URL;
 const API_URL_PORT = process.env.REACT_APP_API_URL_PORT;
 
-class LineChart extends React.Component {
-  constructor(props) {
+interface LineChartData {
+  close: number;
+  time: string;
+}
+
+interface LineChartState {
+  series: any;
+  loading: boolean;
+}
+
+class LineChart extends React.Component<{}, LineChartState> {
+  constructor(props: {}) {
     super(props);
 
     this.state = {
@@ -17,62 +29,6 @@ class LineChart extends React.Component {
         name: 'WIG20',
         data: []
       }],
-      options: {
-        chart: {
-          type: 'area',
-          stacked: false,
-          height: 350,
-          zoom: {
-            type: 'x',
-            enabled: true,
-            autoScaleYaxis: true
-          },
-          toolbar: {
-            autoSelected: 'zoom'
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        markers: {
-          size: 0,
-        },
-        title: {
-          text: 'WIG20',
-          align: 'center'
-        },
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shadeIntensity: 1,
-            inverseColors: false,
-            opacityFrom: 0.5,
-            opacityTo: 0,
-            stops: [0, 90, 100]
-          },
-        },
-        yaxis: {
-          labels: {
-            formatter: function (val) {
-              return val.toFixed(2);
-            },
-          },
-          title: {
-            text: ''
-          },
-        },
-        xaxis: {
-          type: 'datetime',
-        },
-        tooltip: {
-          shared: false,
-          y: {
-            formatter: function (val) {
-              return val.toFixed(2)
-            }
-          }
-        }
-      },
       loading: true
     };
   }
@@ -96,13 +52,13 @@ class LineChart extends React.Component {
     });
   }
 
-  adjustData(data) {
-    const adjustedData = [];
+  adjustData(data: LineChartData[]) {
+    const adjustedData: any[] = [];
     data.forEach(tuple => {
       const {close, time} = tuple;
       const adjustedTuple = {x: time, y: close/100};
       adjustedData.push(adjustedTuple);
-    })
+    });
     return adjustedData;
   }
 
@@ -122,7 +78,7 @@ class LineChart extends React.Component {
               </div>
             ) : (
               <ReactApexChart
-                options={this.state.options}
+                options={lineChartSettings}
                 series={this.state.series}
                 type="area"
                 height={350}
