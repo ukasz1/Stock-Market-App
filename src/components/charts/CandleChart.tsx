@@ -1,10 +1,10 @@
 import React from "react";
-import dayjs from "dayjs";
 import axios from "axios";
-
 import styled from "styled-components";
 import ReactApexChart from "react-apexcharts";
 import MoonLoader from "react-spinners/MoonLoader";
+
+import {candlestickChartSettings} from "./utils/candlestickChart";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const API_URL_PORT = process.env.REACT_APP_API_URL_PORT;
@@ -15,13 +15,13 @@ interface CandleData {
   max: number;
   min: number;
   close: number;
-  time: any;
-}
+  time: string;
+};
 
 interface CandleChartState {
-  series: any;
+  series: ApexCharts.ApexOptions["series"];
   loading: boolean;
-}
+};
 
 class CandleChart extends React.Component<{}, CandleChartState> {
   constructor(props: {}) {
@@ -91,32 +91,7 @@ class CandleChart extends React.Component<{}, CandleChartState> {
           ) : (
             <ReactApexChart
               series={this.state.series}
-              options={{
-                chart: { type: "candlestick" },
-                title: {
-                  text: "WIG20",
-                  align: "center",
-                },
-                tooltip: {
-                  enabled: true,
-                },
-                xaxis: {
-                  type: "category",
-                  labels: {
-                    formatter: function (val: string) {
-                      return dayjs(val).format("MMM DD");
-                    },
-                  },
-                },
-                yaxis: {
-                  tooltip: {
-                    enabled: true,
-                  },
-                  title: {
-                    text: "",
-                  },
-                },
-              }}
+              options={candlestickChartSettings}
               type="candlestick"
               height={350}
               width={800}
