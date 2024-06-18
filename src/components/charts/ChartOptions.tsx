@@ -3,7 +3,16 @@ import SelectType from './SelectType';
 import SelectPeriod from './SelectPeriod';
 import SelectInterval from './SelectInterval';
 
-const ChartOptions = ({chartType, setChartType, interval, setInterval, period, setPeriod}) => {
+interface ChartOptionsProps {
+  chartType: string;
+  setChartType: React.Dispatch<React.SetStateAction<string>>;
+  interval: string;
+  setInterval: React.Dispatch<React.SetStateAction<string>>;
+  period: string;
+  setPeriod: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const ChartOptions: React.FC<ChartOptionsProps> = ({chartType, setChartType, interval, setInterval, period, setPeriod}) => {
   return (
     <Wrapper>
       <div className="header">
